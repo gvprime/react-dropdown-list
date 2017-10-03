@@ -1,6 +1,8 @@
 # react-dropdown-list
 An easy to use dropdown menu for ReactJs.
 
+[Live demo here](http://react-dropdown-list.srgunltd.co.uk/)
+
 ## Usage
 Import using `import DropdownList from location` (suggest adding to `src` folder)
 
