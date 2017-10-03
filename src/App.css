@@ -1,0 +1,32 @@
+/**
+	react-dropdown-list css
+*/
+ 
+/* dropdown container */
+.react-downdown-list{
+
+}
+
+/* dropdown title (i.e. click me) */
+.react-downdown-list__title{
+
+}
+
+/* list of dropdown menu items */
+.react-downdown-list__menu{
+
+	/* clean up the menu list */
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+/* individual list item inside menu */
+.react-downdown-list__item{
+
+}
+
+/* individual link inside menu */
+.react-downdown-list__link{
+
+}
