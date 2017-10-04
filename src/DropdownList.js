@@ -20,7 +20,7 @@ class DropdownList extends Component {
 		  const dropdownTitle = this.menu.contains(event.target);
 
 		  if (!dropdownTitle) {
-		    this.setState(() => ({ dropdownIsOpen: false }))
+		    this.setState({ dropdownIsOpen: false });
 		  }
 		};
 		
@@ -31,10 +31,10 @@ class DropdownList extends Component {
 		document.removeEventListener('click', this.eventListener);
 	}
 
-	renderItems(item) {
+	renderItem(item) {
 		const { path, title } = item;
 		return (
-			<li key={item.title} className="react-downdown-list__item">
+			<li key={title} className="react-downdown-list__item">
 				<a className="react-downdown-list__link" href={path}>{title}</a>
 			</li>
 		);
@@ -52,7 +52,7 @@ class DropdownList extends Component {
 				{
 					this.state.dropdownIsOpen &&
 					<ul className="react-downdown-list__menu">
-						{items.map(this.renderItems)}
+						{items.map(this.renderItem)}
 					</ul>
 				}
 			</nav>
