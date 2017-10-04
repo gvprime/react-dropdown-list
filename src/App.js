@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DropdownList from './DropdownList';
-import './App.css';
+//import './App.css';
 
 class MenuOne extends Component {
 	render() {
@@ -38,7 +38,7 @@ class MenuTwo extends Component {
 			]
 		}
 
-		return <DropdownList menu={menu} isOpen={true} />
+		return <DropdownList menu={menu} />
 	}
 }
 

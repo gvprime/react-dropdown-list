@@ -1,53 +1,72 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class DropdownList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dropdownIsOpen: this.props.isOpen === true ? true : false,
+			dropdownIsOpen: props.isOpen,
 		}
 		this._handleToggleDropdown = this._handleToggleDropdown.bind(this);
 	}
 
 	_handleToggleDropdown(){
-		this.state.dropdownIsOpen === false ? this.setState({ dropdownIsOpen: true }) : this.setState({ dropdownIsOpen: false })
+		this.setState(state => ({ dropdownIsOpen: !state.dropdownIsOpen }));
 	}
 
-	componentDidMount(){
-		const self = this;
+	componentDidMount() {
+		this.eventListener = (event) => {
+		  const dropdownTitle = this.menu.contains(event.target);
 
-		document.addEventListener('click', function(e) {
-		  const dropdownTitle = document.getElementById(self.props.menu.title).contains(e.target);
-
-		  if ( ! dropdownTitle) {
-		    self.setState({ dropdownIsOpen: false })
+		  if (!dropdownTitle) {
+		    this.setState(() => ({ dropdownIsOpen: false }))
 		  }
-		});
+		};
+		
+		document.addEventListener('click', this.eventListener);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('click', this.eventListener);
+	}
+
+	renderItems(item) {
+		const { path, title } = item;
+		return (
+			<li key={item.title} className="react-downdown-list__item">
+				<a className="react-downdown-list__link" href={path}>{title}</a>
+			</li>
+		);
 	}
 	
 	render() {
-		const items = this.props.menu.items.map((item, index) => {
-			return (
-				<li key={index} className="react-downdown-list__item">
-					<a className="react-downdown-list__link" href={item.path}>{item.title}</a>
-				</li>
-			)
-		})
+		const { menu } = this.props;
+		const { items } = menu;
 
 		return (
-			<nav id={this.props.menu.title} className="react-downdown-list">
+			<nav ref={element => this.menu = element} className="react-downdown-list">
 				<div className="react-downdown-list__title" onClick={this._handleToggleDropdown}>
-					{this.props.menu.title}
+					{menu.title}
 				</div>
 				{
 					this.state.dropdownIsOpen &&
 					<ul className="react-downdown-list__menu">
-						{items}
+						{items.map(this.renderItems)}
 					</ul>
 				}
 			</nav>
 		)
 	}
 }
+
+DropdownList.defaultProps = {
+	isOpen: false,
+};
+
+DropdownList.propTypes = {
+	isOpen: PropTypes.bool,
+	menu: PropTypes.object.isRequired,
+};
 
 export default DropdownList;
