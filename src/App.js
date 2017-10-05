@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import DropdownList from './DropdownList';
-//import './App.css';
 
 class MenuOne extends Component {
 	render() {
 		const menu = {
 			title: "My Account",
 			items: [ 
+				{
+					"title":"My profile", 
+					"path":"/profile" 
+				},
 				{
 					"title":"Billing", 
 					"path":"/billing" 

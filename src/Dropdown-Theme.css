@@ -1,0 +1,53 @@
+/**
+	react-dropdown-list theme css
+	this file controls the appearance of the dropdown - please edit to suit your needs
+*/
+ 
+/* dropdown container */
+.react-downdown-list{
+	font-family:arial;
+	font-size:14px;
+	position:relative;
+	display:inline-block;
+	margin-right:15px;
+}
+
+/* dropdown title (i.e. click me) */
+.react-downdown-list__title{
+	padding:4px 8px;
+	border:1px solid #bababa;
+	border-radius:2px;
+	cursor:pointer;
+}
+	.react-downdown-list__title:hover{
+		background-color:#e0e0e0;
+	}
+
+/* list of dropdown menu items */
+.react-downdown-list__menu{
+	position:absolute;
+	margin-top:-1px;
+	border:1px solid #bababa;
+	min-width:98%;
+}
+
+/* individual list item inside menu */
+.react-downdown-list__item{
+
+}
+	.react-downdown-list__item:last-child .react-downdown-list__link{
+		border-bottom:none;
+	}
+
+/* individual link inside menu */
+.react-downdown-list__link{
+	display:block;
+	padding:4px 8px;
+	border-bottom:1px solid #bababa;
+	text-decoration:none;
+	color:#666;
+}
+
+	.react-downdown-list__link:hover{
+		background-color:#f0f0f0;
+	}

@@ -1,16 +1,8 @@
 /**
-	react-dropdown-list css
+	react-dropdown-list skeleton css
+	only edit this file if absolutely necessary.
+	to change tooltip appearance edit Dropdown-Theme.css
 */
- 
-/* dropdown container */
-.react-downdown-list{
-
-}
-
-/* dropdown title (i.e. click me) */
-.react-downdown-list__title{
-
-}
 
 /* list of dropdown menu items */
 .react-downdown-list__menu{
@@ -24,9 +16,8 @@
 /* individual list item inside menu */
 .react-downdown-list__item{
 
-}
-
-/* individual link inside menu */
-.react-downdown-list__link{
-
+	/* clean up the menu list */
+	margin:0;
+	padding:0;
+	list-style:none;
 }
